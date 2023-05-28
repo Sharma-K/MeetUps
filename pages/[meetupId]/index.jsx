@@ -52,7 +52,7 @@ export async function getStaticPaths(){
 export async function getStaticProps(context){
     const id = context.params.meetupId; 
     
-    const response = await(await fetch(`http://localhost:3000/api/get-meetup/${id}`)).json();
+    const response = await(await fetch(process.env.BASE_URL+`/api/get-meetup/${id}`)).json();
   const data = response.data;
    
     
@@ -65,7 +65,8 @@ export async function getStaticProps(context){
                 address: data.address,
                 description: data.description
             }
-        }
+        },
+        revalidate: 1000
     }
 
 }
