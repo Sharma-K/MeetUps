@@ -17,13 +17,27 @@ const DUMMY_MEETUPS = [
         description: 'Great'
     }
 ]
-const Home = () =>{
- const [loadedMeetups, setLoadedMeetups] =  useState([])
-    useEffect(()=>{
-       setLoadedMeetups(DUMMY_MEETUPS);
-    },[])
+const Home = (props) =>{
+
     return ( 
-    <MeetupList meetups={loadedMeetups} />
+    <MeetupList meetups={props.meetups} />
     )
+}
+// export async function getServerSideProps(context){
+//     const req = context.req;
+//     const res = context.res;
+//     return {
+//         props: {
+//             meetups: DUMMY_MEETUPS
+//         }
+//     }
+// }
+export async function getStaticProps(){
+    //fetching of the data
+    return {
+        props:{
+            meetups: DUMMY_MEETUPS
+        }
+    }
 }
 export default Home;
