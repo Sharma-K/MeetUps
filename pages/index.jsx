@@ -1,9 +1,16 @@
 import MeetupList from "@/components/meetups/MeetupList";
+import Head from "next/head";
 const Home = (props) =>{
  
     
     return ( 
+        <>
+        <Head>
+            <title>Meetups</title>
+            <meta name="description" content="List of your meetups" />
+        </Head>
     <MeetupList meetups={props.meetups} />
+    </>
     )
 }
 export async function getServerSideProps(context){
