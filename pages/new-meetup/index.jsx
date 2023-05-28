@@ -2,6 +2,7 @@ import NewMeetupForm from "@/components/meetups/NewMeetupForm";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+
 const NewMeetUp =()=>{
     const router = useRouter();
    async function addMeetupHandler(eneteredData){

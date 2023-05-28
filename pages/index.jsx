@@ -16,7 +16,12 @@ const Home = (props) =>{
 export async function getServerSideProps(context){
   
 
-    const response = await(await fetch('http://localhost:3000/api/get-meetup')).json();
+    const response = await(await fetch(process.env.BASE_URL+'/api/get-meetup',{
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        method: 'GET'
+    })).json();
    const data = response.data;
   
     return {

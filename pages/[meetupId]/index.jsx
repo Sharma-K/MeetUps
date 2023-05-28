@@ -20,7 +20,7 @@ const MeetupDetails = (props) =>{
 }
 export async function getStaticPaths(){
    
-    const response = await(await fetch('http://localhost:3000/api/get-meetup')).json();
+    const response = await(await fetch(process.env.BASE_URL+'/api/get-meetup')).json();
     const data = response.data;
    
    
